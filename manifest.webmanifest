@@ -2,8 +2,8 @@
   "short_name": "uuidgen",
   "icons": [
     {
-      "src": "icon-256.png",
-      "sizes": "256x256",
+      "src": "icon-64.png",
+      "sizes": "64x64",
       "type": "image/png"
     }
   ],
@@ -11,4 +11,4 @@
   "display": "fullscreen",
   "theme_color": "#dff0d8",
   "background_color": "#dff0d8"
-  }
+}
