@@ -38,16 +38,62 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((r) => {
-          console.log('[Service Worker] Fetching resource: '+e.request.url);
-      return r || fetch(e.request).then((response) => {
-                return caches.open(cacheName).then((cache) => {
-          console.log('[Service Worker] Caching new resource: '+e.request.url);
-          cache.put(e.request, response.clone());
-          return response;
-        });
-      });
-    })
-  );
+	if (!e.request.url.match(/^(http|https):\/\//i)) {
+		return;
+	}
+
+	if (new URL(e.request.url).origin !== location.origin) {
+		return;
+	}
+
+	if (neverCacheUrls.test(e.request.url)) {
+		return;
+	}
+	if (neverCacheUrls.test(e.request.referrer)) {
+		return;
+	}
+
+	if (e.request.referrer.match(/^(wp-admin):\/\//i)) {
+		return;
+	}
+
+	if (e.request.method !== 'GET') {
+		e.respondWith(
+			fetch(e.request).catch(() => {
+				return caches.match(OFFLINE_URL);
+			})
+		);
+		return;
+	}
+
+	if (e.request.mode === 'navigate' && navigator.onLine) {
+		e.respondWith(
+			fetch(e.request).then((response) => {
+				return caches.open(CACHE_NAME).then((cache) => {
+					cache.put(e.request, response.clone());
+					return response;
+				});
+			})
+		);
+		return;
+	}
+
+	e.respondWith(
+		caches
+			.match(e.request)
+			.then((response) => {
+				return (
+					response ||
+					fetch(e.request).then((response) => {
+						return caches.open(CACHE_NAME).then((cache) => {
+							cache.put(e.request, response.clone());
+							return response;
+						});
+					})
+				);
+			})
+			.catch(() => {
+				return caches.match(OFFLINE_URL);
+			})
+	);
 });
