@@ -4,8 +4,9 @@ const urlsToCache = [
   '/uuidgen/',
   '/uuidgen/index.html',
   '/uuidgen/app.js',
-  '/uuidgen/uuidgen',
-  '/uuidgen/style.css'
+  '/uuidgen/uuidgen.js',
+  '/uuidgen/style.css',
+  '/uuidgen/icon-64.png'
 ];
 const neverCacheUrls = /\/wp-admin|\/wp-login|preview=true|\/cart|ajax|login/;
 
