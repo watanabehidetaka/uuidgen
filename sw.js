@@ -18,23 +18,16 @@ self.addEventListener('install', (event) => {
 	);
 });
 
-self.addEventListener('activate', (event) => {
-	event.waitUntil(
-		caches
-			.keys()
-			.then((keys) =>
-				Promise.all(
-					keys.map((key) => {
-						if (CACHE_NAME !== key) {
-							return caches.delete(key);
-						}
-					})
-				)
-			)
-			.then(() => {
-				self.clients.claim();
-			})
-	);
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keyList) => {
+          return Promise.all(keyList.map((key) => {
+        if(key !== cacheName) {
+          return caches.delete(key);
+        }
+      }));
+    })
+  );
 });
 
 self.addEventListener('fetch', (e) => {
