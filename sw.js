@@ -1,5 +1,4 @@
-const cacheName = 'uuidgen-v0.1.1';
-const OFFLINE_URL = '/uuidgen/';
+const cacheName = 'uuidgen-v0.1.2';
 const urlsToCache = [
   '/uuidgen/',
   '/uuidgen/index.html',
@@ -8,7 +7,6 @@ const urlsToCache = [
   '/uuidgen/style.css',
   '/uuidgen/icon-64.png'
 ];
-const neverCacheUrls = /\/wp-admin|\/wp-login|preview=true|\/cart|ajax|login/;
 
 self.addEventListener('install', (e) => {
   console.log('[Service Worker] Install');
