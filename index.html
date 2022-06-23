@@ -20,7 +20,7 @@
   </svg>
 </button>
   <p><button id="gen">generator</button></p>
-  <p id="version">version: 0.1.4</p>
+  <p id="version">version: 0.1.5</p>
 <script type="text/javascript" src="uuidgen.js" charset="UTF-8"></script>
 <script type="text/javascript">
 let query = new Proxy(window, {
@@ -61,7 +61,7 @@ query['#upper'].onchange = function() {
   if(query['#upper'].checked){
     query.span.innerText = query.span.innerText.toLocaleUpperCase();
   }else{
-   query.span.innerText = query.span.innerText.toLocaleLowerCase(); 
+    query.span.innerText = query.span.innerText.toLocaleLowerCase(); 
   }
 }
 </script>
