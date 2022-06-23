@@ -2,6 +2,10 @@ body {
   text-align: center;
 }
 
+p {
+  color: #999;
+}
+
 .d-none {
   display: none;
 }

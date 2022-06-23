@@ -1,5 +1,4 @@
-const cacheName = 'uuidgen-v0.1.1';
-const OFFLINE_URL = '/uuidgen/';
+const cacheName = 'uuidgen-v0.1.3';
 const urlsToCache = [
   '/uuidgen/',
   '/uuidgen/index.html',
