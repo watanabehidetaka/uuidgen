@@ -2,7 +2,7 @@ body {
   text-align: center;
 }
 
-p {
+p#version {
   color: #999;
 }
 
