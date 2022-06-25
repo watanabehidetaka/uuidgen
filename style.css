@@ -26,13 +26,10 @@ button {
   padding-bottom: 5px;
 }
 
-pre {
- text-size: 20px;
- font-weight: bold;
-}
-
 pre span {
   background-color: #bbb;
   padding: 5px;
   border-radius: 10px;
+  text-size: 20px;
+ font-weight: bold;
 }
