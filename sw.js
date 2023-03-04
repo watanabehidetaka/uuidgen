@@ -1,4 +1,4 @@
-const cacheName = 'uuidgen-v0.2.0',
+const cacheName = 'uuidgen-v0.2.1',
 urlsToCache = [
   '/uuidgen/',
   '/uuidgen/app.js',
