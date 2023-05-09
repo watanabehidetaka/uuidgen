@@ -7,7 +7,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/uuidgen/index.html",
+  "start_url": "./",
+  "categories": "developer tools",
   "display": "fullscreen",
   "theme_color": "#dff0d8",
   "background_color": "#dff0d8"
